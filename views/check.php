@@ -405,7 +405,7 @@ $list=$livraisonC->afficherLivraisons();
 						</div>
 							<label class="control-label">Prenom *</label>
 						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="prenom" placeholder="Prebom" required>
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="prenom" placeholder="Prebom" required onblur="verifnom(this)">
 						</div>
 						<label class="control-label">adresse *</label>
 						<div class="bo4 of-hidden size15 m-b-20">

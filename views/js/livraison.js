@@ -54,6 +54,8 @@ function veriftelephone(champ)
    }
 }
 
+
+
 function verifnom(champ)
 {
       var exp = new RegExp("^[a-z\- ]+$","i");

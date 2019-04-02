@@ -8,7 +8,7 @@ $res=$dbhandle->query($query);
 
     include "../cores/livreurC.php";
     $livreurC= new livreurC();
-    $list=$livreurC->afficherLivreurs();
+    $list=$livreurC->triLivreurs();
 ?>
 
 

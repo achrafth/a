@@ -57,7 +57,7 @@ class LivreurC {
             die('Erreur: '.$e->getMessage());
         }	
 	}
-	function afficherLivreurs2(){
+	function triLivreurs(){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
 		$sql="SElECT * From livre ORDER BY dispo ";
 		$db = config::getConnexion();
