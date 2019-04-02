@@ -9,6 +9,10 @@ $res=$dbhandle->query($query);
     $livraisonC= new livraisonC();
     $list=$livraisonC->afficherLivraisons();
 ?>
+
+
+
+
     <!-- /#header -->
     <!-- Content -->
     <div class="content">
@@ -78,8 +82,8 @@ $res=$dbhandle->query($query);
                                                      <th class="text-center">telef</th>
                                                     <th class="text-center">email</th>
                                                     <th class="text-center">password</th>
-                                                     <th class="text-center">Modifier</th>
-                                                    <th class="text-center">Supprimer</th>
+                                                     <th class="text-center">supprimer</th>
+                                                    <th class="text-center">modifier</th>
                                                     <th class="text-center">Tri</th>
                                                 </tr>
 
@@ -107,7 +111,7 @@ $res=$dbhandle->query($query);
                                                     </form>
                                                 </td>
 
-                                                    <td><a href="modifierlivraison.php?nom=<?php echo $row['nom']; ?>">
+                                                    <td><a href="modifierlivraison1.php?nom=<?php echo $row['nom']; ?>">
                                                         <span ><input  type="submit"  class="btn btn-warning btn-rounded btn-sm my-0" name="Modifier" value="Modifier" >
                                                         </span></a>
                                                         

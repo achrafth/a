@@ -87,7 +87,7 @@ if (isset($_POST['modifier'])){
 	$livraison=new Livraison($_POST['nom'],$_POST['prenom'],$_POST['adresse'],$_POST['region'],$_POST['ville'],$_POST['codepostal'],$_POST['telef'],$_POST['email'],$_POST['password']);
 	$livraisonC->modifierLivraison($livraison,$_POST['nom']);
 	echo $_POST['nom_ini'];
-	header('Location: check.php');
+	header('Location: adminHome.php');
 }
 ?>
 </body>

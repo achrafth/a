@@ -1,6 +1,7 @@
 
 
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
@@ -108,7 +109,7 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="adminHome.php"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                    <a href="adminHome.php"><i class="menu-icon fa fa-laptop"></i>Home </a>
                 </li>
                 <li class="menu-title">UI elements</li><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
@@ -132,7 +133,8 @@
                         Gestion Livraison
                     </a>
                     <ul class="sub-menu children dropdown-menu">
-                      <li><i class="menu-icon fa fa-th"></i><a href="adminliv.php">Livreur</a></li>
+                      <li><i class="menu-icon fa fa-th"></i><a href="adminhh.php">Livreur</a></li>
+                           <li><i class="menu-icon fa fa-th"></i><a href="adminliv.php">Livraison</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">

@@ -26,7 +26,7 @@ function verifMail(champ)
 
 function verifpass(champ)
 {
-   var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+   var regex = /^[a-zA-Z0-9._-]+[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
    if(!regex.test(champ.value))
    {
       surligne(champ, true);
@@ -42,7 +42,7 @@ function verifpass(champ)
 function veriftelephone(champ)
 {   var c = f.telef.value;
     
-   if(c.length!=8  )
+   if(c.length != 8)
    {
       surligne(champ, true);
       return false;

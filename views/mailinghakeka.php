@@ -8,7 +8,7 @@
 		<?php
 											if(isset($_POST['submit'])){
 											$to='achraf.thamricc@gmail.com';
-											$sujet='test mail en local';
+											$sujet='Livraison';
 											$texte=$_POST['texte'];
 											$header='From :  test@gmail.com';
 											mail($to,$sujet,$texte);

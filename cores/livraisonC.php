@@ -62,7 +62,7 @@ class LivraisonC {
             die('Erreur: '.$e->getMessage());
         }	
 	}
-	function afficherLivraisons2(){
+	function triLivraisons(){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
 		$sql="SElECT * From livr ORDER BY ville ";
 		$db = config::getConnexion();
@@ -128,7 +128,7 @@ try{
 		
 	}
 	function recupererLivraison($nom){
-		$sql="SELECT * from livr where nom=$nom";
+		$sql="SELECT * from livr where nom='".$nom."'";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);

@@ -7,7 +7,7 @@ $res=$dbhandle->query($query);
     include_once('headerAdmin.php');
     include "../cores/livraisonC.php";
     $livraisonC= new livraisonC();
-    $list=$livraisonC->afficherLivraisons2();
+    $list=$livraisonC->triLivraisons();
 ?>
     <!-- /#header -->
     <!-- Content -->
@@ -107,7 +107,7 @@ $res=$dbhandle->query($query);
                                                     </form>
                                                 </td>
 
-                                                    <td><a href="modifierlivraison.php?nom=<?php echo $row['nom']; ?>">
+                                                    <td><a href="modifierlivraison1.php?nom=<?php echo $row['nom']; ?>">
                                                         <span ><input  type="submit"  class="btn btn-warning btn-rounded btn-sm my-0" name="Modifier" value="Modifier" >
                                                         </span></a>
                                                         

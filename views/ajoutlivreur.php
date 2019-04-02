@@ -8,7 +8,7 @@ if(isset($_POST['nom'])  && isset($_POST['prenom']) && isset($_POST['date']) && 
 
   $livr1c=new LivreurC();
   $livr1c->ajouterLivreur($livr1);
-header('Location: check1.php');
+header('Location: adminhh.php');
 }
 else {
   echo "non";

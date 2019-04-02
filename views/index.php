@@ -94,7 +94,7 @@
                             </li>
 
                             <li>
-                                <a href="check.php">livraison</a>
+                                <a href="check.php">Livraison</a>
                             </li>
 
                             <li>
@@ -182,7 +182,7 @@
 
                                 <div class="header-cart-wrapbtn">
                                     <!-- Button -->
-                                    <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                    <a href="check.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
                                         Check Out
                                     </a>
                                 </div>
@@ -367,10 +367,9 @@
     </header>
 
     <!-- Title Page -->
-    <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/1.jpg);">
-        <h2 class="l-text2 t-center">
-            livraison
-        </h2>
+    <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/.jpg);">
+        <h2 class="l-text2 t-center" style="color:black;">
+            Home
     </section>
 
     <!-- content page -->

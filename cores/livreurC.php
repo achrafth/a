@@ -120,7 +120,7 @@ try{
 		
 	}
 	function recupererLivreur($nom){
-		$sql="SELECT * from livre where nom=$nom";
+		$sql="SELECT * from livre where nom='".$nom."'";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);

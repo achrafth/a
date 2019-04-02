@@ -105,12 +105,13 @@ $list=$livraisonC->afficherLivraisons();
 								<a href="blog.php">Blog</a>
 							</li>
 
-							<li>
-								<a href="about.php">About</a>
-							</li>
+							
 
 							<li>
 								<a href="check.php">Livraison</a>
+							</li>
+							<li>
+								<a href="contact.php">Contact</a>
 							</li>
 						</ul>
 					</nav>
@@ -194,7 +195,7 @@ $list=$livraisonC->afficherLivraisons();
 
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<a href="check.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										Check Out
 									</a>
 								</div>
@@ -467,7 +468,7 @@ $list=$livraisonC->afficherLivraisons();
 													<th class="text-center">email</th>
 													<th class="text-center">password</th-->
 													<th class="text-center">Supprimer</th>
-													<th class="text-center">Modifier</th-->
+														<th class="text-center">Modifier</th>
 
 												</tr>
 												<?php 
@@ -492,16 +493,20 @@ $list=$livraisonC->afficherLivraisons();
 														
 													</form>
 													</td>
-																			                        <!-- bouton modifier-->
+																			                        <!-- bouton modifie
+
+
+
+																			                        	r-->
+
 
 													</td>
-													<td>
-														<span > <a href="modifierlivraison.php?nom=<?PHP echo $row['nom']; ?>"><input  type="submit" class="btn btn-warning btn-rounded btn-sm my-0" name="" value="Modifier"></a>
-														</span>
-														
-														
-													
-													</td>
+												 <td><a href="modifierlivraison.php?nom=<?php echo $row['nom']; ?>">
+                                                        <span ><input  type="submit"  class="btn btn-warning btn-rounded btn-sm my-0" name="Modifier" value="Modifier" >
+                                                        </span></a>
+                                                        
+                                                    
+                                                    </td>
 												</tr>
 												<?php
 											}?>
@@ -509,10 +514,13 @@ $list=$livraisonC->afficherLivraisons();
 										
 
 									</table>
-
+<div>
 </br></br><span> <a href="adminHome.php"><input  type="submit" class="btn btn-warning btn-rounded btn-sm my-0" name="" value="Go Back End" ></a>
 														</span>
-														
+
+</div>
+				
+							
 			</div>
 		</div>
 	</section>
@@ -703,7 +711,8 @@ $list=$livraisonC->afficherLivraisons();
 
 <!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->  <script src="js/livraison.js"> </script>
+<!--===============================================================================================-->  
+<script src="js/livraison.js"> </script>
 	<script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>

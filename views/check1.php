@@ -514,6 +514,11 @@ $list=$livreurC->afficherLivreurs();
 	</section>
 
 
+
+
+
+
+
 	<!-- Footer -->
 	<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
 		<div class="flex-w p-b-90">
