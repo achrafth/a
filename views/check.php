@@ -1,5 +1,7 @@
 <?php
-    //session_start();
+ session_start (); 
+ 
+   //session_start();
  
 include "../entities/livraison.php";
 include "../cores/livraisonC.php";
@@ -7,6 +9,7 @@ include "../cores/livraisonC.php";
 $livraisonC=new livraisonC();
 
 $list=$livraisonC->afficherLivraisons();
+
 ?>
 
 
@@ -119,9 +122,47 @@ $list=$livraisonC->afficherLivraisons();
 
 				<!-- Header Icon -->
 				<div class="header-icons">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-					</a>
+					<?php
+					if (isset($_SESSION['user_name']) && isset($_SESSION['user_pass'])) 
+{ 
+ ?>
+   <div class="header-account-links">
+   <?php echo $_SESSION['user_name']; ?>
+</div> 
+
+
+  <!-- <a class="btn btn-lg btn-primary m-b-5 m-t-5" href="modifier.php"> <?php echo $_SESSION['username']; ?> </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+  <!-- <a id="heading" href="carte.php"><i class="far fa-address-card" aria-hidden="true"></i> <span>carte</span></a>
+   &nbsp;&nbsp;&nbsp;&nbsp;-->
+   
+   <a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> <span>Logout</span></a>
+
+
+  <!-- <a id="heading" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> <span>Logout</span></a> -->
+    <?php 
+
+}
+
+else {  ?>
+    <a  href="index.php" class="fa fa-sign-in" >user_name</a>
+
+    
+    
+      <?php
+
+
+}  ?>
+					
+					 <div class="user-menu dropdown-menu">
+                        <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+
+                        <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
+
+                        <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+
+                        <a class="nav-link" href="./logout.php"><i class="fa fa-power -off"></i>Logout</a>
+                    </div>
+
 
 					<span class="linedivide1"></span>
 
@@ -458,6 +499,7 @@ $list=$livraisonC->afficherLivraisons();
 
 				<table class="table table-bordered table-responsive-md table-striped text-center mb-0 text-nowrap">
 												<tabody><tr>
+													<th class="text-center" >N° Livraison</th>
 													<th class="text-center" >Nom</th>
 													<th class="text-center" >Prenom</th>
 													<th class="text-center">Adresse</th>
@@ -474,7 +516,8 @@ $list=$livraisonC->afficherLivraisons();
 												<?php 
 													foreach( $list as $row )
 														{ ?>
-													<tr>	
+													<tr>
+													<td class="pt-3-half" contenteditable="true"> <?php echo $row['numliv']; ?> </td>	
 													<td class="pt-3-half" contenteditable="true"> <?php echo $row['nom']; ?> </td>
 													<td class="pt-3-half" contenteditable="true"> <?php echo $row['prenom']; ?> </td>
 													<td class="pt-3-half" contenteditable="true"> <?php echo $row['adresse']; ?> </td>

@@ -2,6 +2,7 @@
 include "../config.php";
 class LivraisonC {
 	function afficherLivraison ($livr){
+		echo "Numliv: ".$livr->getNumliv()."<br>";
 		echo "Nom: ".$livr->getNom()."<br>";
 		echo "Prenom: ".$livr->getPrenom()."<br>";
 		echo "adresse: ".$livr->getAdresse()."<br>";
@@ -9,8 +10,10 @@ class LivraisonC {
 		echo "ville: ".$livr->getVille()."<br>";
 		echo "codepostal: ".$livr->getCodepostal()."<br>";
 		echo "telef: ".$livr->getTelef()."<br>";
+		echo "etat: ".$livr->getEtat()."<br>";
 		echo "email: ".$livr->getEmail()."<br>";
 		echo "password: ".$livr->getPassword()."<br>";
+		echo "dateliv: ".$livr->getDateliv()."<br>";
 
 	}
 		
@@ -64,7 +67,7 @@ class LivraisonC {
 	}
 	function triLivraisons(){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
-		$sql="SElECT * From livr ORDER BY ville ";
+		$sql="SElECT * From livr ORDER BY dateliv ";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);

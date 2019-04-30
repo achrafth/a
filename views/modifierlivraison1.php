@@ -37,7 +37,7 @@ if (isset($_GET['nom'])){
 </tr>
 <tr>
 <td>preNom</td>
-<td><input type="text" name="prenom" value="<?PHP echo $prenom ?>" ></td>
+<td><input type="text" name="prenom" value="<?PHP echo $prenom ?>" readonly style="color:red;"></td>
 </tr>
 <tr>
 <td>adresse</td>
@@ -62,11 +62,11 @@ if (isset($_GET['nom'])){
 </tr>
 <tr>
 <td>email</td>
-<td><input type="text" name="email" value="<?PHP echo $email ?>"></td>
+<td><input type="text" name="email" value="<?PHP echo $email ?>" readonly style="color:red;"></td>
 </tr>
 <tr>
 	<td>password</td>
-<td><input type="text" name="password" value="<?PHP echo $password ?>"></td>
+<td><input type="text" name="password" value="<?PHP echo $password ?>" readonly style="color:red;"></td>
 </tr>
 
 <tr>

@@ -1,13 +1,42 @@
-<?php
+
+<?PHP
+session_start();
 $dbhandle =new mysqli('localhost','root','','achraf');
 echo $dbhandle->connect_error;
 $query ="SELECT ville, sum(nom) FROM livr group by ville ";
 $res=$dbhandle->query($query);
 
-    include_once('headerAdmin.php');
-    include "../cores/livraisonC.php";
-    $livraisonC= new livraisonC();
-    $list=$livraisonC->triLivraisons();
+include_once('headerAdmin.php');
+include "../cores/livraisonC.php";
+include "../entities/livraison.php";
+$livraison1C=new livraisonC();
+$listeLivraison=$livraison1C->afficherLivraisons();
+
+//var_dump($listeEmployes->fetchAll());
+
+if(isset($_POST['search']))
+{
+    $valueToSearch = $_POST['valueToSearch'];
+    // search in all table columns
+    // using constant(name)cat mysql function
+    $query = "SELECT * FROM livr WHERE CONCAT(nom, prenom, adresse, region, ville, codepostal, etat, email, password) LIKE '%".$valueToSearch."%'";
+    $search_result = filterTable($query);
+    
+}
+ else {
+    $query = "SELECT * FROM livr";
+    $search_result = filterTable($query);
+}
+
+// function to connect and execute the query
+function filterTable($query)
+{
+    $connect = mysqli_connect("localhost", "root", "", "achraf");
+    $filter_Result = mysqli_query($connect, $query);
+    return $filter_Result;
+}
+
+
 ?>
     <!-- /#header -->
     <!-- Content -->
@@ -69,6 +98,8 @@ $res=$dbhandle->query($query);
                                         <div id="table" class="table-responsive table-editable">
                                             <table class="table table-bordered table-responsive-md table-striped text-center mb-0 text-nowrap">
                                                 <tbody><tr>
+                                                    <th class="text-center">Date Livraison</th>
+                                                    <th class="text-center">N° Livraison</th>
                                                     <th class="text-center">Nom</th>
                                                     <th class="text-center">Prenom</th>
                                                     <th class="text-center">adresse</th>
@@ -76,6 +107,7 @@ $res=$dbhandle->query($query);
                                                     <th class="text-center">ville</th>
                                                     <th class="text-center">codepostal</th>
                                                      <th class="text-center">telef</th>
+                                                     <th class="text-center">Etat</th>
                                                     <th class="text-center">email</th>
                                                     <th class="text-center">password</th>
                                                      <th class="text-center">Modifier</th>
@@ -84,12 +116,14 @@ $res=$dbhandle->query($query);
                                                 </tr>
 
 
-                                                <?php
-                                                foreach ($list as $row ) {
-                                                    ?>
+                                                <?PHP while($row = mysqli_fetch_array($search_result)):
+
+                                
+                                                ?>
                                                 
                                                 <tr>
-
+                                <td class="pt-3-half" contenteditable="true"><?PHP echo $row['dateliv']; ?></td>
+                                                     <td class="pt-3-half" contenteditable="true"><?PHP echo $row['numliv']; ?></td>
                                                     <td class="pt-3-half" contenteditable="true"><?PHP echo $row['nom']; ?></td>
                                                     <td class="pt-3-half" contenteditable="true"><?PHP echo $row['prenom']; ?></td>
                                                     <td class="pt-3-half" contenteditable="true"><?PHP echo $row['adresse']; ?></td>
@@ -97,6 +131,7 @@ $res=$dbhandle->query($query);
                                                     <td class="pt-3-half" contenteditable="true"><?PHP echo $row['ville']; ?></td>
                                                      <td class="pt-3-half" contenteditable="true"><?PHP echo $row['codepostal']; ?></td>
                                                      <td class="pt-3-half" contenteditable="true"><?PHP echo $row['telef']; ?></td>
+                                                      <td class="pt-3-half" contenteditable="true"><?PHP echo $row['etat']; ?></td>
                                                      <td class="pt-3-half" contenteditable="true"><?PHP echo $row['email']; ?></td>
                                                      <td class="pt-3-half" contenteditable="true"><?PHP echo $row['password']; ?></td>
 
@@ -111,14 +146,30 @@ $res=$dbhandle->query($query);
                                                         <span ><input  type="submit"  class="btn btn-warning btn-rounded btn-sm my-0" name="Modifier" value="Modifier" >
                                                         </span></a>
                                                         
-                                                    
+
                                                     </td>
                                                        
                                                     
-                                                <?php } ?>
+                                               </tr>
+                                                    <?php endwhile; 
+                                                        ?>
+                                                    
                                             
                                             </tbody></table>
+
                                         </div>
+                                        <form method="POST" action="adminliv.php">
+                                                        <div class="card-body">
+                                        <div class="input-group">
+                                            <input class="btn btn-warning btn-rounded btn-sm my-0" type="text" name="valueToSearch" placeholder="Value To Search">
+                                            <div class="input-group-append">
+                                                
+                                                <input type="submit" name="search" value="Rechercher" class="btn btn-primary btr-2 bbr-2">
+                                                <br><br>
+                                            </div>
+                                </div>
+                            </div>
+</form>
                                     </div>
                                 </div>
                             </div>

@@ -1,17 +1,34 @@
-<?php
-  class config {
-    private static $instance = NULL;
 
-    public static function getConnexion() {
-      if (!isset(self::$instance)) {
+<?php
+
+
+class config
+{   
+    public static function getConnexion()
+    {
+        //le nom de votre serveur
+        $servername = "localhost";
+        //le nom de l'utilisateur
+        $username ="root";
+        //le nom de base de données
+        $dbname= "achraf";
+        //mtp pour votre base de données
+        $password ="";
         try{
-        self::$instance = new PDO('mysql:host=localhost;dbname=achraf', 'root', '');
-        self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }catch(Exception $e){
+            //établir une connection avec la base de donnée
+            //il suffit de faire une instance de classe PDO
+            $conf = new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
+            return $conf;
+        }
+        //Tester la présence d'erreurs
+        catch (Exception $e){
             die('Erreur: '.$e->getMessage());
         }
-      }
-      return self::$instance;
     }
-  }
-?>
+     public function query($sql, $data = array()){
+        $bd=self::getConnexion();
+        $req = $bd->prepare($sql);
+        $req->execute($data);
+        return $req->fetchAll(PDO::FETCH_OBJ);
+    }
+}

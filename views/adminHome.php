@@ -1,4 +1,5 @@
 <?php
+session_start (); 
 $dbhandle =new mysqli('localhost','root','','achraf');
 echo $dbhandle->connect_error;
 $query ="SELECT ville, sum(nom) FROM livr group by ville ";
@@ -62,6 +63,9 @@ $res=$dbhandle->query($query);
             
             <!--  /Traffic -->
 
+
+
+
                     <div class="card">    
                           <div class="card-body">                             
             <div class="clearfix"></div>
@@ -73,6 +77,7 @@ $res=$dbhandle->query($query);
                                         <div id="table" class="table-responsive table-editable">
                                             <table class="table table-bordered table-responsive-md table-striped text-center mb-0 text-nowrap">
                                                 <tbody><tr>
+                                                    <th class="text-center">N° Livraison</th>
                                                     <th class="text-center">Nom</th>
                                                     <th class="text-center">Prenom</th>
                                                     <th class="text-center">adresse</th>
@@ -80,8 +85,10 @@ $res=$dbhandle->query($query);
                                                     <th class="text-center">ville</th>
                                                     <th class="text-center">codepostal</th>
                                                      <th class="text-center">telef</th>
+                                                     <th class="text-center">Etat</th>
                                                     <th class="text-center">email</th>
                                                     <th class="text-center">password</th>
+                                                    <th class="text-center">Date Livraison</th>
                                                      <th class="text-center">supprimer</th>
                                                     <th class="text-center">modifier</th>
                                                     <th class="text-center">Tri</th>
@@ -93,7 +100,7 @@ $res=$dbhandle->query($query);
                                                     ?>
                                                 
                                                 <tr>
-
+                                                    <td class="pt-3-half" contenteditable="true"><?PHP echo $row['numliv']; ?></td>
                                                     <td class="pt-3-half" contenteditable="true"><?PHP echo $row['nom']; ?></td>
                                                     <td class="pt-3-half" contenteditable="true"><?PHP echo $row['prenom']; ?></td>
                                                     <td class="pt-3-half" contenteditable="true"><?PHP echo $row['adresse']; ?></td>
@@ -101,8 +108,10 @@ $res=$dbhandle->query($query);
                                                     <td class="pt-3-half" contenteditable="true"><?PHP echo $row['ville']; ?></td>
                                                      <td class="pt-3-half" contenteditable="true"><?PHP echo $row['codepostal']; ?></td>
                                                      <td class="pt-3-half" contenteditable="true"><?PHP echo $row['telef']; ?></td>
+                                                     <td class="pt-3-half" contenteditable="true"><?PHP echo $row['etat']; ?></td>
                                                      <td class="pt-3-half" contenteditable="true"><?PHP echo $row['email']; ?></td>
                                                      <td class="pt-3-half" contenteditable="true"><?PHP echo $row['password']; ?></td>
+                                                     <td class="pt-3-half" contenteditable="true"><?PHP echo $row['dateliv']; ?></td>
 
                                                     <td><form method="POST" action="supprimerlivraison1.php">
                                                         <span ><input  type="submit" class="btn btn-danger btn-rounded btn-sm my-0" name="Supprimer" value="Supprimer">
@@ -120,7 +129,7 @@ $res=$dbhandle->query($query);
                                                        
                                                         <td><form method="POST" action="adminliv.php">
                                                         <span ><input  type="submit" class="btn btn-danger btn-rounded btn-sm my-0" name="tri" value="tri">
-                                                            <input type="hidden" value="<?php echo $row['nom']; ?>" name="nom"></span>
+                                                            <input type="hidden" value="<?php echo $row['dateliv']; ?>" name="nom"></span>
 
                                                         
                                                     </form>
@@ -193,6 +202,7 @@ $res=$dbhandle->query($query);
                </div>
             <!-- /To Do and Live Chat -->
             <!-- Calender Chart Weather  -->
+
             
 
            </div>

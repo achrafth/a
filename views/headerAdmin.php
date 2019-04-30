@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -67,39 +66,8 @@
         }
 
     </style>
-     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      
-
-
-      function drawChart() {
-
-        var data = google.visualization.arrayToDataTable([
-          ['ville', 'nom'],
-          <?php
-        while($row=$res->fetch_assoc())
-        {
-          echo "['".$row['ville']."',".$row['sum(nom)']."],";
-          }
-          ?>
-        ]);
-
-        var options = {
-          title: 'ville plus pertinents  ',
-          is3D:true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-      }
-
-
-
-
-    </script>
+  
+   
 </head>
 
 <body>
@@ -154,6 +122,9 @@
                         <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">Themefy Icons</a></li>
                     </ul>
                 </li>
+
+
+
                 <li>
                     <a href="widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>
                 </li>
@@ -231,6 +202,9 @@
                         </div>
                     </div>
 
+
+
+
                     <div class="dropdown for-message">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-envelope"></i>
@@ -275,9 +249,42 @@
                 </div>
 
                 <div class="user-area dropdown float-right">
+
                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
                     </a>
+<div class="header-icons">
+                    <?php
+                    if (isset($_SESSION['user_name']) && isset($_SESSION['user_pass'])) 
+{ 
+ ?>
+   <div class="header-account-links">
+   <?php echo $_SESSION['user_name']; ?>
+</div> 
+
+
+  <!-- <a class="btn btn-lg btn-primary m-b-5 m-t-5" href="modifier.php"> <?php echo $_SESSION['username']; ?> </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+  <!-- <a id="heading" href="carte.php"><i class="far fa-address-card" aria-hidden="true"></i> <span>carte</span></a>
+   &nbsp;&nbsp;&nbsp;&nbsp;-->
+   
+   <a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> <span>Logout</span></a>
+
+
+  <!-- <a id="heading" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> <span>Logout</span></a> -->
+    <?php 
+
+}
+
+else {  ?>
+    <a  href="index.php" class="fa fa-sign-in" >user_name</a>
+
+    
+    
+      <?php
+
+
+}  ?>
+
 
                     <div class="user-menu dropdown-menu">
                         <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
@@ -286,7 +293,7 @@
 
                         <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-                        <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                        <a class="nav-link" href="./logout.php"><i class="fa fa-power -off"></i>Logout</a>
                     </div>
                 </div>
 

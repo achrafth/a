@@ -1,17 +1,17 @@
 <?php 
-include_once ('../config.php');
+include 'dbconfig.php';
 class User{
 	private $login;
     private $pwd;
 	private $role;
-    public $conf;	
+    public $conn;	
 
 	public function __construct($login,$pwd,$conn)
 	{
 		$this->login=$login;
 		$this->pwd=$pwd;
-		$c=new config();
-		$this->conf=$c->getConnexion();
+		$c=new Database();
+		$this->conn=$c->connexion();
 		
 	}
 	function getLog()
@@ -29,10 +29,10 @@ class User{
 		
 	}
 
-	public function Logedin($conf,$login,$pwd)
+	public function Logedin($conn,$login,$pwd)
 	{
-		$req="select * from users where user_name='$login' and user_pass='$pwd'";
-		$rep=$conf->query($req);
+		$req="select * from users where user_name='$login' && user_pass='$pwd'";
+		$rep=$conn->query($req);
 		return $rep->fetchAll();
 	}
 
